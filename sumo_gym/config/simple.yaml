@@ -1,0 +1,29 @@
+env:
+    sumo_config: sumo/simple.sumocfg
+    speed_limit: 30
+    vehicle_speed_mean: 25
+    vehicle_speed_variation: 2
+    num_random_vehicles: 20
+    goal:
+        x: 1000
+    reward:
+        goal_bonus: 0
+        off_lane_penalty_factor: 1
+        speed_penalty_factor: 1
+        acceleration_penalty_factor: 1
+        alive_bonus: 10
+        safety_penalty: 10
+
+alg:
+    name: ddqn
+    gamma: 0.99
+    epsilon_start: 1.0
+    epsilon_end: 0.1
+    epsilon_decay: 500
+    update_freq: 512
+    batch_size: 256
+    lr: 0.00005
+    multi_steps: 1
+    reward:
+        off_road: 10
+        crash: 100
